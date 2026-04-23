@@ -105,7 +105,6 @@ if not shared.VapeIndependent then
 		else
 			local found = false
 			local callback = shared.VapeDeveloper and readfile or downloadFile
-			print(debug.info(callback, 'n'))
 			
 			for i, v in httpService:JSONDecode(callback("catrewrite/profiles/supported.json")) do
 				if found then break; end
@@ -113,7 +112,6 @@ if not shared.VapeIndependent then
 					for i2, v2 in v do
 						if typeof(v2) == 'table' and table.find(v2.Ids, game.PlaceId) then
 							found = true
-							print('im tryna load bedwars but it aint loadin', 'catrewrite/games/'.. i.. '/'.. i2.. '.luau')
 							vape.Place = v2.Place
 							loadstring(callback('catrewrite/games/'.. i.. '/'.. i2.. '.luau'), tostring(game.PlaceId))(...)
 							break
