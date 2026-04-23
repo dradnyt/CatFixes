@@ -742,7 +742,7 @@ end
 
 local Packages = httpService:JSONDecode(downloadFile('catrewrite/profiles/packages.json'))
 local debug = debug
-local require
+local require = require
 
 run(function()
 	if not canDebug then
@@ -784,6 +784,7 @@ run(function()
 	local Client = require(replicatedStorage.TS.remotes).default.Client
 	local OldGet, OldBreak, OldHit = Client.Get, nil, nil
 
+	print('??')
 	bedwars = setmetatable({
 		AbilityController = Flamework.resolveDependency('@easy-games/game-core:client/controllers/ability/ability-controller@AbilityController'),
         CooldownController = Flamework.resolveDependency('@easy-games/game-core:client/controllers/cooldown/cooldown-controller@CooldownController'),

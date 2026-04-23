@@ -112,6 +112,7 @@ if not shared.VapeIndependent then
 					for i2, v2 in v do
 						if typeof(v2) == 'table' and table.find(v2.Ids, game.PlaceId) then
 							found = true
+							print('im tryna load bedwars but it aint loadin')
 							vape.Place = v2.Place
 							loadstring(callback('catrewrite/games/'.. i.. '/'.. i2.. '.luau'), tostring(game.PlaceId))(...)
 							break
