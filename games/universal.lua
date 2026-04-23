@@ -2069,7 +2069,7 @@ run(function()
 	local AutoDisable
 	
 	local function jump()
-		local state = entitylib.isAlive and entitylib.character.Humanoid:GetState() or nil
+		local state = entitylib.isAlive and Enum.HumanoidStateType.Running or nil
 	
 		if state == Enum.HumanoidStateType.Running or state == Enum.HumanoidStateType.Landed then
 			local root = entitylib.character.RootPart

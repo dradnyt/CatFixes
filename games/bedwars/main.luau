@@ -1,4 +1,3 @@
-print("fuckass ragebait")
 local run = function(func)
 	func()
 end
@@ -90,7 +89,6 @@ local function addBlur(parent)
 end
 getgenv().addBlur = addBlur
 
-print('? w bait?>')
 local function collection(tags, module, customadd, customremove)
 	tags = typeof(tags) ~= 'table' and {tags} or tags
 	local objs, connections = {}, {}
@@ -724,9 +722,7 @@ run(function()
 	end
 	vape:Clean(entitylib.Events.LocalAdded:Connect(updateVelocity))
 end)
-warn('bro im done')
 entitylib.start()
-print('ts ragebait')
 
 local function downloadFile(path, func)
 	if not isfile(path) then
@@ -734,7 +730,7 @@ local function downloadFile(path, func)
 			return game:HttpGet('https://raw.githubusercontent.com/MaxlaserTech/CatV6/'..readfile('catrewrite/profiles/commit.txt')..'/'..select(1, path:gsub('catrewrite/', '')), true)
 		end)
 		if not suc or res == '404: Not Found' then
-			return print(path, res)
+			return
 		end
 		if path:find('.lua') then
 			res = '\n'..res
@@ -772,13 +768,11 @@ end)
 
 run(function()
 	local KnitInit, Knit
-	print('hm')
 	repeat
 		KnitInit, Knit = pcall(function()
 			return require(replicatedStorage.rbxts_include.node_modules['@easy-games'].knit.src).KnitClient
 		end)
 		if KnitInit then break end
-		warn(KnitInit, Knit)
 		task.wait()
 	until KnitInit
 
@@ -791,7 +785,6 @@ run(function()
 	local Client = require(replicatedStorage.TS.remotes).default.Client
 	local OldGet, OldBreak, OldHit = Client.Get, nil, nil
 
-	print('??')
 	bedwars = setmetatable({
 		AbilityController = Flamework.resolveDependency('@easy-games/game-core:client/controllers/ability/ability-controller@AbilityController'),
         CooldownController = Flamework.resolveDependency('@easy-games/game-core:client/controllers/cooldown/cooldown-controller@CooldownController'),
@@ -924,7 +917,6 @@ run(function()
 		local remote = not canDebug and '' or dumpRemote(debug.getconstants(v))
 		if (not canDebug or remote == '') and Packages.remotes[i] then
 			remote = Packages.remotes[i]
-			warn("yo im feinberg", i, remote)
 		end
 
 		if remote == '' then
@@ -2540,9 +2532,7 @@ run(function()
 	local anims, AnimDelay, AnimTween, armC0 = vape.Libraries.auraanims, tick()
 	local AttackRemote = {FireServer = function(self, ...) end}
 	task.spawn(function()
-		warn(remotes.AttackEntity)
 		AttackRemote = bedwars.Client:Get(remotes.AttackEntity).instance
-		warn("Great got remote")
 	end)
 
 	local function getAttackData()
@@ -2696,7 +2686,6 @@ run(function()
 									store.attackReachUpdate = tick() + 1
 
                                     if AirChance.Value >= 100 or v.Humanoid.FloorMaterial ~= Enum.Material.Air or Random.new():NextInteger(1, 100) < AirChance.Value then
-										print('great', sword.tool, typeof(sword.tool))
                                         AttackRemote:FireServer({
                                             weapon = sword.tool,
                                             chargedAttack = {chargeRatio = 0},
@@ -2799,8 +2788,8 @@ run(function()
 	SwingRange = Killaura:CreateSlider({
 		Name = 'Swing range',
 		Min = 1,
-		Max = 18,
-		Default = 18,
+		Max = 30,
+		Default = 30,
 		Suffix = function(val)
 			return val == 1 and 'stud' or 'studs'
 		end
@@ -2808,8 +2797,8 @@ run(function()
 	AttackRange = Killaura:CreateSlider({
 		Name = 'Attack range',
 		Min = 1,
-		Max = 18,
-		Default = 18,
+		Max = 22,
+		Default = 22,
 		Suffix = function(val)
 			return val == 1 and 'stud' or 'studs'
 		end
