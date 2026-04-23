@@ -4957,8 +4957,10 @@ run(function()
 	for i in AutoKitFunctions do
 		table.insert(sortTable, i)
 	end
-	table.sort(sortTable, function(a, b)
-		return bedwars.BedwarsKitMeta[a].name < bedwars.BedwarsKitMeta[b].name
+	pcall(function()
+		table.sort(sortTable, function(a, b)
+			return bedwars.BedwarsKitMeta[a].name < bedwars.BedwarsKitMeta[b].name
+		end)
 	end)
 	for _, v in sortTable do
 		Toggles[v] = AutoKit:CreateToggle({
