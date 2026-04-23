@@ -105,6 +105,7 @@ if not shared.VapeIndependent then
 		else
 			local found = false
 			local callback = shared.VapeDeveloper and readfile or downloadFile
+			print(debug.info(callback, 'n'))
 			
 			for i, v in httpService:JSONDecode(callback("catrewrite/profiles/supported.json")) do
 				if found then break; end

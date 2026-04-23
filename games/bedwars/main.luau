@@ -746,6 +746,7 @@ local require = require
 
 run(function()
 	if not canDebug then
+		print('trying to load ce lib')
 		local function cache(Name : string)
 			return vape.Libraries.cheatenginelib[Name]:await()
 		end
@@ -767,11 +768,13 @@ end)
 
 run(function()
 	local KnitInit, Knit
+	print('hm')
 	repeat
 		KnitInit, Knit = pcall(function()
 			return require(replicatedStorage.rbxts_include.node_modules['@easy-games'].knit.src).KnitClient
 		end)
 		if KnitInit then break end
+		warn(KnitInit, Knit)
 		task.wait()
 	until KnitInit
 
