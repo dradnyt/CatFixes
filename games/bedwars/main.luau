@@ -4963,10 +4963,12 @@ run(function()
 		end)
 	end)
 	for _, v in sortTable do
-		Toggles[v] = AutoKit:CreateToggle({
-			Name = bedwars.BedwarsKitMeta[v].name,
-			Default = true
-		})
+		pcall(function()
+			Toggles[v] = AutoKit:CreateToggle({
+				Name = bedwars.BedwarsKitMeta[v].name,
+				Default = true
+			})
+		end)
 	end
 end)
 	
