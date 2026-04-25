@@ -7292,9 +7292,13 @@ run(function()
 				itemAdded(v)
 			end
 			Disguise:Clean(char.Character.ChildAdded:Connect(itemAdded))
+            for _, v in getconnections(entitylib.character.Humanoid.Swimming) do
+                 v:Disable()
+            end
 	
 			for _, v in clone:WaitForChild('Animate'):GetChildren() do
 				if not char.Character:FindFirstChild('Animate') then return end
+				if v.Name == 'swim' then continue end
 				local real = char.Character.Animate:FindFirstChild(v.Name)
 				if v and real then
 					local anim = v:FindFirstChildWhichIsA('Animation') or {AnimationId = ''}
@@ -7352,7 +7356,7 @@ run(function()
 				return
 			end
 			if data.BundleType == 'AvatarAnimations' then
-				local animate = char.Character:FindFirstChild('Animate')																																																																																																																					
+				local animate = char.Character:FindFirstChild('Animate')
 				if not animate then return end
 				for _, v in desc.Items do
 					local animtype = v.Name:split(' ')[2]:lower()
