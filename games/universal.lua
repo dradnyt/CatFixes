@@ -7292,9 +7292,11 @@ run(function()
 				itemAdded(v)
 			end
 			Disguise:Clean(char.Character.ChildAdded:Connect(itemAdded))
-            for _, v in getconnections(entitylib.character.Humanoid.Swimming) do
-                 v:Disable()
-            end
+			Disguise:Clean(runService.PreSimulation:Connect(function()
+    if entitylib.isAlive then
+        entitylib.character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming, false)
+    end
+end))
 	
 			for _, v in clone:WaitForChild('Animate'):GetChildren() do
 				if not char.Character:FindFirstChild('Animate') then return end
