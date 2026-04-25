@@ -7353,6 +7353,7 @@ run(function()
 			end
 			if data.BundleType == 'AvatarAnimations' then
 				local animate = char.Character:FindFirstChild('Animate')
+				if v.Name == 'swim' then continue end																																																																																																																					
 				if not animate then return end
 				for _, v in desc.Items do
 					local animtype = v.Name:split(' ')[2]:lower()
